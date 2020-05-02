@@ -66,14 +66,15 @@ function createCategory(parent, { description, operation }, context, info) {
 async function login(parent, { email, password }, context, info) {
 
   const user = await context.db.query.user({ where: { email } })
+  const errorText = "Credenciais Inválidas"
 
   if (!user) {
-    throw new Error("Invalid credentials")
+    throw new Error(errorText)
   }
 
   const valid = await bcrypt.compare(password, user.password)
   if (!valid) {
-    throw new Error("Invalid credentials")
+    throw new Error(errorText)
   }
 
   const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: "2h" })
