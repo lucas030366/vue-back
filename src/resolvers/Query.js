@@ -87,7 +87,6 @@ function accounts(parent, args, context, info) {
 
 function categories(parent, { operation }, context, info) {
   const userId = getUserId(context)
-
   let AND = [
     {
       OR: [

@@ -9,7 +9,13 @@ function createRecord(parent, args, context, info) {
 
   const date = moment(args.date)
   if(!date.isValid()){
-    throw new Error("Invalid Date!")
+    throw new Error("Data Inválida!")
+  }
+
+  let {amount, type} = args 
+
+  if( (type == "DEBIT" && amount > 0) || (type == "CREDIT" && amount < 0) ){
+    amount = -amount
   }
 
   const userId = getUserId(context)
@@ -24,8 +30,8 @@ function createRecord(parent, args, context, info) {
       category:{
         connect: { id: args.categoryId }
       },
-      amount: args.amount,
-      type: args.type,
+      amount,
+      type,
       date: args.date,
       description: args.description,
       tags: args.tags,
