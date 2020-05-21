@@ -5,8 +5,4 @@ generate:
   - generator: javascript-client
     output: ./../src/generated/prisma-client
   - generator: graphql-schema
-    output: ./../src/generated/graphql-schema
-
-hooks:
-  post-deploy:
-    - prisma generate
+    output: ./../src/generated/graphql-schema/prisma.graphql

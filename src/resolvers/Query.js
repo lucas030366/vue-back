@@ -16,14 +16,15 @@ function totalBalance(parent, { date }, context, info) {
   const variaveis = {
     database: "default",
     query: `
-      SELECT SUM("${pgSchema}"."Record"."amount") as totalbalance
-        FROM "${pgSchema}"."Record"
 
-        JOIN "${pgSchema}"."_RecordToUser"
-        ON "${pgSchema}"."_RecordToUser"."A" = "${pgSchema}"."Record"."id"
+      SELECT SUM ("${pgSchema}"."Record"."amount") as totalbalance 
+      FROM "${pgSchema}"."Record"
 
-        WHERE "${pgSchema}"."_RecordToUser"."B" = '${userId}'
-        AND "${pgSchema}"."Record"."date" <= '${dateISO}'
+      JOIN "${pgSchema}"."User"
+      on "${pgSchema}"."Record"."user" = "${pgSchema}"."User"."id"
+
+      where "${pgSchema}"."User"."id" = '${userId}'
+      AND "${pgSchema}"."Record"."date" <= '${dateISO}'
 
     `
   }

@@ -1,14 +1,18 @@
 type User {
-  id: ID! @unique
+  id: ID! @id
   name: String!
 	email: String! @unique
-	password: String! 
+	password: String!
+	updatedAt: DateTime! @updatedAt
+	createdAt: DateTime! @createdAt
 }
 
 type Account {
-	id: ID! @unique
+	id: ID! @id
 	user: User
 	description: String!
+	updatedAt: DateTime! @updatedAt
+	createdAt: DateTime! @createdAt
 }
 
 enum Operation {
@@ -17,14 +21,16 @@ enum Operation {
 }
 
 type Category {
-	id: ID! @unique
+	id: ID! @id
 	user: User 
 	description: String! 
 	operation: Operation!
+	updatedAt: DateTime! @updatedAt
+	createdAt: DateTime! @createdAt
 }
 
 type Record {
-	id: ID! @unique
+	id: ID! @id
 	user:	User! 
 	account: Account!
 	category: Category!
@@ -34,5 +40,6 @@ type Record {
 	description: String!
 	tags: String
 	note: String
-
+	updatedAt: DateTime! @updatedAt
+	createdAt: DateTime! @createdAt
 }

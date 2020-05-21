@@ -2,6 +2,8 @@ type Account {
   id: ID!
   user: User
   description: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type AccountConnection {
@@ -11,6 +13,7 @@ type AccountConnection {
 }
 
 input AccountCreateInput {
+  id: ID
   user: UserCreateOneInput
   description: String!
 }
@@ -30,15 +33,17 @@ enum AccountOrderByInput {
   id_DESC
   description_ASC
   description_DESC
-  createdAt_ASC
-  createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type AccountPreviousValues {
   id: ID!
   description: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type AccountSubscriptionPayload {
@@ -115,6 +120,22 @@ input AccountWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [AccountWhereInput!]
   OR: [AccountWhereInput!]
   NOT: [AccountWhereInput!]
@@ -149,6 +170,8 @@ type Category {
   user: User
   description: String!
   operation: Operation!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type CategoryConnection {
@@ -158,6 +181,7 @@ type CategoryConnection {
 }
 
 input CategoryCreateInput {
+  id: ID
   user: UserCreateOneInput
   description: String!
   operation: Operation!
@@ -180,16 +204,18 @@ enum CategoryOrderByInput {
   description_DESC
   operation_ASC
   operation_DESC
-  createdAt_ASC
-  createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type CategoryPreviousValues {
   id: ID!
   description: String!
   operation: Operation!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type CategorySubscriptionPayload {
@@ -273,6 +299,22 @@ input CategoryWhereInput {
   operation_not: Operation
   operation_in: [Operation!]
   operation_not_in: [Operation!]
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [CategoryWhereInput!]
   OR: [CategoryWhereInput!]
   NOT: [CategoryWhereInput!]
@@ -362,6 +404,8 @@ type Record {
   description: String!
   tags: String
   note: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type RecordConnection {
@@ -371,6 +415,7 @@ type RecordConnection {
 }
 
 input RecordCreateInput {
+  id: ID
   user: UserCreateOneInput!
   account: AccountCreateOneInput!
   category: CategoryCreateOneInput!
@@ -402,10 +447,10 @@ enum RecordOrderByInput {
   tags_DESC
   note_ASC
   note_DESC
-  createdAt_ASC
-  createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type RecordPreviousValues {
@@ -416,6 +461,8 @@ type RecordPreviousValues {
   description: String!
   tags: String
   note: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type RecordSubscriptionPayload {
@@ -537,6 +584,22 @@ input RecordWhereInput {
   note_not_starts_with: String
   note_ends_with: String
   note_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [RecordWhereInput!]
   OR: [RecordWhereInput!]
   NOT: [RecordWhereInput!]
@@ -558,6 +621,8 @@ type User {
   name: String!
   email: String!
   password: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type UserConnection {
@@ -567,6 +632,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   name: String!
   email: String!
   password: String!
@@ -591,10 +657,10 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
-  createdAt_ASC
-  createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type UserPreviousValues {
@@ -602,6 +668,8 @@ type UserPreviousValues {
   name: String!
   email: String!
   password: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type UserSubscriptionPayload {
@@ -718,6 +786,22 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
